@@ -16,8 +16,6 @@ on:
         required: true
         description: The base name of the image.
     secrets:
-      GITHUB_TOKEN:
-        required: true
       GH_PACKAGE_READ_TOKEN:
         required: true
 
