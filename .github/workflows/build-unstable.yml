@@ -15,6 +15,11 @@ on:
         type: string
         required: true
         description: The base name of the image.
+      tag: 
+        description: tag or commit sha
+        required: false
+        type: string
+        default: ''
     secrets:
       GH_PACKAGE_READ_TOKEN:
         required: true
@@ -26,13 +31,42 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
+    - name: Check that the tag exists in repo
+      id: tag_check
+      run: |
+        if [ ${{ inputs.tag }} == '']; then
+          echo "tag=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
+        elif git rev-parse 'refs/tags/${{ inputs.tag }}' &> /dev/null; then
+          echo 'tag=${{ inputs.tag }}' >> $GITHUB_OUTPUT
+        elif git rev-parse '${{ github.event.inputs.tag }}' &> /dev/null; then
+          echo "tag=`git rev-parse '${{ inputs.tag }}'`" >> $GITHUB_OUTPUT
+        else
+          echo "Couldn't figure out tag from input: ${{ inputs.tag }}"
+          echo "Aborting deployment."
+          false
+        fi
     - name: Log into Github Container Registry
       uses: docker/login-action@v2
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Check that the tag exists in container registry
+      id: image_check
+      run: |
+        if docker manifest inspect ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }} > /dev/null; then
+          echo 'image_exists=true' >> $GITHUB_OUTPUT
+          echo "image exists!"
+        else
+          echo "image doesn't exist; Starting to Build and push image"
+        fi
+    - name: Checkout Correct repository
+      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ steps.tag_check.outputs.tag }}
     - name: Build and Push
+      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
       uses: docker/build-push-action@v4
       with:
         context: ${{ inputs.docker_context }}
@@ -42,6 +76,6 @@ jobs:
         push: true
         tags: | 
            ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:latest
-           ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ github.sha }}
+           ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ steps.tag_check.outputs.tag }}
 
 
