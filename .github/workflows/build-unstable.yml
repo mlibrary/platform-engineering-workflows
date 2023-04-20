@@ -54,7 +54,7 @@ jobs:
     - name: Check that the tag exists in container registry
       id: image_check
       run: |
-        if docker manifest inspect ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }} > /dev/null; then
+        if docker manifest inspect ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ steps.tag_check.outputs.tag }} > /dev/null; then
           echo 'image_exists=true' >> $GITHUB_OUTPUT
           echo "image exists!"
         else
