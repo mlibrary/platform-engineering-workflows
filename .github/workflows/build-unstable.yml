@@ -15,10 +15,14 @@ on:
         type: string
         required: true
         description: The base name of the image.
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+      GH_PACKAGE_READ_TOKEN:
+        required: true
 
 jobs:
   build_unstable:
-    name: Build ${{ github.sha }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +35,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Push
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v4
       with:
         context: ${{ inputs.docker_context }}
         file: ${{ inputs.dockerfile }}
