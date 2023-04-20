@@ -26,7 +26,7 @@ on:
         default: Updating images
     secrets:
       CONFIG_REPO_RW_KEY:
-        requied: true
+        required: true
 
 jobs:
   deploy:
