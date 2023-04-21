@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.1.0...v1.2.0) (2023-04-21)
+
+
+### Features
+
+* adds build-production.yml ([7f8f035](https://github.com/mlibrary/platform-engineering-workflows/commit/7f8f0354d999e8da68e44bc74c13a0d782014010))
+
+
+### Bug Fixes
+
+* fixes tags so it handles no tag and given tag ([77ebbb9](https://github.com/mlibrary/platform-engineering-workflows/commit/77ebbb92bde911cf301bb993e0c334c490ddbfb8))
+
 ## [1.1.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.0.0...v1.1.0) (2023-04-21)
 
 
