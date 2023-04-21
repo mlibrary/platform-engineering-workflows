@@ -34,7 +34,7 @@ jobs:
     - name: Check that the tag exists in repo
       id: tag_check
       run: |
-        if [ ${{ inputs.tag }} == '']; then
+        if [ '${{ inputs.tag }}' == '']; then
           echo "tag=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
         elif git rev-parse 'refs/tags/${{ inputs.tag }}' &> /dev/null; then
           echo 'tag=${{ inputs.tag }}' >> $GITHUB_OUTPUT
