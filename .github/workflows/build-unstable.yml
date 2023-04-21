@@ -19,7 +19,6 @@ on:
         description: tag or commit sha
         required: false
         type: string
-        default: ''
     secrets:
       GH_PACKAGE_READ_TOKEN:
         required: true
@@ -32,16 +31,18 @@ jobs:
       with:
         fetch-depth: 0
     - name: Check that the tag exists in repo
+      env: 
+        TAG: ${{ inputs.tag }}
       id: tag_check
       run: |
-        if [ '${{ inputs.tag }}' == '']; then
+        if [ -z $TAG ]; then
           echo "tag=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
-        elif git rev-parse 'refs/tags/${{ inputs.tag }}' &> /dev/null; then
-          echo 'tag=${{ inputs.tag }}' >> $GITHUB_OUTPUT
-        elif git rev-parse '${{ inputs.tag }}' &> /dev/null; then
-          echo "tag=`git rev-parse '${{ inputs.tag }}'`" >> $GITHUB_OUTPUT
+        elif git rev-parse "refs/tags/$TAG" &> /dev/null; then
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+        elif git rev-parse $TAG &> /dev/null; then
+          echo "tag=`git rev-parse $TAG`" >> $GITHUB_OUTPUT
         else
-          echo "Couldn't figure out tag from input: ${{ inputs.tag }}"
+          echo "Couldn't figure out tag from input: $TAG"
           echo "Aborting deployment."
           false
         fi
