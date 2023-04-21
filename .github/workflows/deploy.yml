@@ -1,6 +1,5 @@
 name: Deploy
 
-
 on:
   workflow_call: 
     inputs:
@@ -8,9 +7,10 @@ on:
         type: string
         required: true
         description: The full gchr image
-      payload_template:
-        description: path to json file with what images.json files to update in the tanka config repo
+      file:
         type: string
+        required: true
+        description: path to file in repository to update with the image 
       CONFIG_REPO_RW_APP_ID:
         type: string
         required: true
@@ -20,10 +20,6 @@ on:
       CONFIG_REPO_FULL_NAME:
         required: true
         type: string
-      commit_subject:
-        required: false
-        type: string
-        default: Updating images
     secrets:
       CONFIG_REPO_RW_KEY:
         required: true
@@ -42,27 +38,15 @@ jobs:
         app_id: ${{ inputs.CONFIG_REPO_RW_APP_ID }}
         installation_id: ${{ inputs.CONFIG_REPO_RW_INSTALL_ID }}
         private_key: ${{ secrets.CONFIG_REPO_RW_KEY }}
-    - name: Set message
-      id: set_message
-      run: |
-        echo "TITLE=${{ inputs.commit_subject }}" >> $GITHUB_OUTPUT 
-        echo "DESCRIPTION=Originating repository is ${{ github.repository }}\nRun ID is $GITHUB_RUN_ID\nUser is ${{ github.actor }}" >> $GITHUB_OUTPUT
-    - name: Set Data
-      id: set_data
-      run: |
-        template=`cat ${{ inputs.payload_template }}`
-        data=$(echo ${template//%%IMAGE%%/${{ inputs.image }}} | python -c 'import json, sys;var=json.dumps(json.load(sys.stdin));print(json.dumps(var))')
-        echo "DATA=$data" >> $GITHUB_OUTPUT
-    - name: Set Payload
-      run: |
-        data=$(echo ${{ steps.set_data.outputs.DATA }} | python -c 'import json, sys;var=json.dumps(json.load(sys.stdin));print(json.dumps(var))')
-        echo "PAYLOAD={\"title\": \"${{ steps.set_message.outputs.TITLE }}\",\"description\": \"${{ steps.set_message.outputs.DESCRIPTION }}\", \"data\": $data }" >> $GITHUB_ENV
-    - name: echo payload
-      run: echo $PAYLOAD
     - name: Send the message
       uses: peter-evans/repository-dispatch@v2
       with:
         event-type: update-image
         token: ${{ steps.generate_token.outputs.token }}
         repository: ${{ inputs.CONFIG_REPO_FULL_NAME }}
-        client-payload: ${{ env.PAYLOAD }}
+        client-payload: '{
+          "subject": "Update ${{ inputs.file }}",
+          "body": "Originating repository is ${{ github.repository }}\nRun ID is $GITHUB_RUN_ID\nUser is ${{ github.actor }}"
+          "image": "${{ inputs.image }}"
+          "file": "${{ inputs.file }}"
+        }'
