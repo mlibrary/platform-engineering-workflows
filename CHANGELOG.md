@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.2.0...v1.3.0) (2023-04-24)
+
+
+### Features
+
+* adds update-image workflow ([f4e26a8](https://github.com/mlibrary/platform-engineering-workflows/commit/f4e26a8ece18c7dbcd650da58c9a5f169c26be0c))
+
 ## [1.2.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.1.0...v1.2.0) (2023-04-21)
 
 
