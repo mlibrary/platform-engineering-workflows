@@ -1,0 +1,45 @@
+name: Update image file in kube repository
+
+on:
+  workflow_call: 
+    inputs:
+      subject:
+        type: string
+        required: true
+      body:
+        type: string
+        required: true
+      image: 
+        type: string
+        required: true
+      file:
+        type: string
+        required: true
+
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone latest repository
+      uses: actions/checkout@v3
+    - name: dump github event
+      env:
+        EVENT: ${{ toJson(github.event) }}
+      run: echo "$EVENT"
+    - name: update the config
+      env: 
+        FILE: ${{ inputs.file }}
+        IMAGE: ${{ inputs.image }}
+      run: echo -n $IMAGE > $FILE
+    - name: cat the files
+      run: cat ${{ inputs.file }}
+    - name: Commit and push files new file
+      env:
+        SUBJECT: ${{ inputs.subject }}
+        BODY: ${{ inputs.body }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Actions Bot"
+        git add -A
+        git commit -m "$SUBJECT" -m "$BODY"
+        git push
