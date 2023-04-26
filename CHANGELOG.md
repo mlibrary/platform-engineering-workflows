@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.3.0...v1.4.0) (2023-04-26)
+
+
+### Features
+
+* adds sha output to build-unstable ([7d38cfb](https://github.com/mlibrary/platform-engineering-workflows/commit/7d38cfb669e5a4e0626b394a77ecca21121481cb))
+
 ## [1.3.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.2.0...v1.3.0) (2023-04-24)
 
 
