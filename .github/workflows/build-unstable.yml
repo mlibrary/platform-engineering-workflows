@@ -22,10 +22,16 @@ on:
     secrets:
       GH_PACKAGE_READ_TOKEN:
         required: true
+    outputs:
+      sha:
+        description: "github commit hash that corressponds to the tag"
+        value: ${{ jobs.build_unstable.outputs.sha }}
 
 jobs:
   build_unstable:
     runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.tag_check.outputs.tag }}
     steps:
     - uses: actions/checkout@v3
       with:
