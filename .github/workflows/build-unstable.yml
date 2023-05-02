@@ -26,12 +26,16 @@ on:
       sha:
         description: "github commit hash that corressponds to the tag"
         value: ${{ jobs.build_unstable.outputs.sha }}
+      image:
+        description: "full image address"
+        value: ${{ jobs.build_unstable.outputs.image }}
 
 jobs:
   build_unstable:
     runs-on: ubuntu-latest
     outputs:
       sha: ${{ steps.tag_check.outputs.tag }}
+      image: ${{ steps.image_check.outputs.image }}
     steps:
     - uses: actions/checkout@v3
       with:
@@ -60,9 +64,12 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Check that the tag exists in container registry
       id: image_check
+      env:
+        IMAGE: ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ steps.tag_check.outputs.tag }}
       run: |
-        if docker manifest inspect ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ steps.tag_check.outputs.tag }} > /dev/null; then
-          echo 'image_exists=true' >> $GITHUB_OUTPUT
+        echo "image=$IMAGE" >> $GITHUB_OUTPUT
+        if docker manifest inspect $IMAGE > /dev/null; then
+          echo "image_exists=true" >> $GITHUB_OUTPUT
           echo "image exists!"
         else
           echo "image doesn't exist; Starting to Build and push image"
@@ -83,6 +90,4 @@ jobs:
         push: true
         tags: | 
            ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:latest
-           ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:${{ steps.tag_check.outputs.tag }}
-
-
+           ${{ steps.image_check.outputs.image }}
