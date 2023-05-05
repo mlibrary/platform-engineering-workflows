@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.0...v1.5.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* fixes problem with checking the branch name ([0993f48](https://github.com/mlibrary/platform-engineering-workflows/commit/0993f482e3a95d066ab03eea19a27de35be5c542))
+
 ## [1.5.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.4.0...v1.5.0) (2023-05-02)
 
 
