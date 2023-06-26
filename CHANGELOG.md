@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.2](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.1...v1.5.2) (2023-06-26)
+
+
+### Bug Fixes
+
+* run id is interpolated ([481ba68](https://github.com/mlibrary/platform-engineering-workflows/commit/481ba6850e19c01fce428591769b19bc8d462917))
+
 ## [1.5.1](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.0...v1.5.1) (2023-05-05)
 
 
