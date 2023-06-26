@@ -46,7 +46,7 @@ jobs:
         repository: ${{ inputs.CONFIG_REPO_FULL_NAME }}
         client-payload: '{
           "subject": "Update ${{ inputs.file }}",
-          "body": "Originating repository is ${{ github.repository }}\nRun ID is $GITHUB_RUN_ID\nUser is ${{ github.actor }}",
+          "body": "Originating repository is ${{ github.repository }}\nRun ID is ${{ github.run_id }}\nUser is ${{ github.actor }}",
           "image": "${{ inputs.image }}",
           "file": "${{ inputs.file }}"
         }'
