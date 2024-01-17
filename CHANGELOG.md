@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.2...v1.5.3) (2024-01-17)
+
+
+### Bug Fixes
+
+* adds git pull to update-image workflow ([2f8f0b9](https://github.com/mlibrary/platform-engineering-workflows/commit/2f8f0b92bc5579c3771b288a7ffdc2fa1bb207ee))
+
 ## [1.5.2](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.1...v1.5.2) (2023-06-26)
 
 
