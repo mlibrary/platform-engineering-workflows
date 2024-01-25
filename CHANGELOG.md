@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.5](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.4...v1.5.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* removing the required false from the secrets ([33c309b](https://github.com/mlibrary/platform-engineering-workflows/commit/33c309beb61a916ce4b7fe0460dd82d9cef4e5a3))
+
 ## [1.5.4](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.3...v1.5.4) (2024-01-25)
 
 
