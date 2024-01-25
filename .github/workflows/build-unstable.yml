@@ -21,7 +21,8 @@ on:
         type: string
     secrets:
       GH_PACKAGE_READ_TOKEN:
-        required: true
+        required: false
+        default: ""
     outputs:
       sha:
         description: "github commit hash that corressponds to the tag"
@@ -89,6 +90,7 @@ jobs:
         file: ${{ inputs.dockerfile }}
         secrets: |
           "gh_package_read_token=${{ secrets.GH_PACKAGE_READ_TOKEN }}"
+          "github_token=${{ secrets.GITHUB_TOKEN }}"
         push: true
         tags: | 
            ghcr.io/mlibrary/${{ inputs.image_name }}-unstable:latest
