@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.4](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.3...v1.5.4) (2024-01-25)
+
+
+### Bug Fixes
+
+* adds github_token secret ([4257497](https://github.com/mlibrary/platform-engineering-workflows/commit/425749761cb1915364d63d745e739c446b0512a2))
+
 ## [1.5.3](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.2...v1.5.3) (2024-01-17)
 
 
