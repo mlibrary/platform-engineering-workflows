@@ -21,8 +21,7 @@ on:
         type: string
     secrets:
       GH_PACKAGE_READ_TOKEN:
-        required: false
-        default: ""
+        required: true
 
 jobs:
   build_production:
