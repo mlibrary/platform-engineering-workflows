@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.6](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.5...v1.5.6) (2024-02-14)
+
+
+### Bug Fixes
+
+* updates all packages ([15c1483](https://github.com/mlibrary/platform-engineering-workflows/commit/15c148353eeb951fe62ab1e12d37c08fa9ca8e8f))
+* updates release-please action ([5244618](https://github.com/mlibrary/platform-engineering-workflows/commit/5244618c5c21390402a9cbd29c37edeb48c6b341))
+
 ## [1.5.5](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.4...v1.5.5) (2024-01-25)
 
 
