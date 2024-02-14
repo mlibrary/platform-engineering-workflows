@@ -27,7 +27,7 @@ jobs:
   build_production:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Check that the tag exists in repo
@@ -41,7 +41,7 @@ jobs:
           false
         fi
     - name: Log into Github Container Registry
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -57,12 +57,12 @@ jobs:
         fi
     - name: Checkout Correct repository
       if: ${{ steps.image_check.outputs.image_exists != 'true' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ steps.tag_check.outputs.tag }}
     - name: Build and Push
       if: ${{ steps.image_check.outputs.image_exists != 'true' }}
-      uses: docker/build-push-action@v4
+      uses: docker/build-push-action@v5
       with:
         context: ${{ inputs.docker_context }}
         file: ${{ inputs.dockerfile }}
