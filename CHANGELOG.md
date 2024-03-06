@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.6...v1.6.0) (2024-03-06)
+
+
+### Features
+
+* adds functionality to deploy.yaml ([6a1b330](https://github.com/mlibrary/platform-engineering-workflows/commit/6a1b330a68b6dc3f2da168177a53fbbe0d2467fb))
+
 ## [1.5.6](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.5...v1.5.6) (2024-02-14)
 
 
