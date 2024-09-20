@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.0...v1.6.1) (2024-09-20)
+
+
+### Bug Fixes
+
+* add multiline payload to deploy ([0654fcf](https://github.com/mlibrary/platform-engineering-workflows/commit/0654fcf173d868b670f4ac283e4f8fceec6f299c))
+
 ## [1.6.0](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.5.6...v1.6.0) (2024-03-06)
 
 
