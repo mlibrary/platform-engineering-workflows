@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.2](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.1...v1.6.2) (2025-01-30)
+
+
+### Bug Fixes
+
+* change organization to googleapis for release please ([cc090b0](https://github.com/mlibrary/platform-engineering-workflows/commit/cc090b05fc8dd8feedfbcda6357245b99c93c314))
+* retries pushing new image file ([ce7621f](https://github.com/mlibrary/platform-engineering-workflows/commit/ce7621febe3e59b9ac03c6b2644f29ab2801c4a1))
+
 ## [1.6.1](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.0...v1.6.1) (2024-09-20)
 
 
