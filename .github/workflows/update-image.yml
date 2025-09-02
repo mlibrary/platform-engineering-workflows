@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Clone latest repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: dump github event
       env:
         EVENT: ${{ toJson(github.event) }}
