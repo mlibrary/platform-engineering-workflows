@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 0
     - name: Set environment variables
@@ -56,7 +56,7 @@ jobs:
         fi
     - name: Generate app token
       id: generate_token
-      uses: actions/create-github-app-token@v1
+      uses: actions/create-github-app-token@v2
       with:
         app-id: ${{ env.CONFIG_REPO_RW_APP_ID }}
         private-key: ${{ secrets.CONFIG_REPO_RW_KEY }}
