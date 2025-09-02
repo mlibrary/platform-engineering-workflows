@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.3](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.2...v1.6.3) (2025-09-02)
+
+
+### Bug Fixes
+
+* bump the all group with 3 updates ([84d6ef2](https://github.com/mlibrary/platform-engineering-workflows/commit/84d6ef2a1ff8917453cc6e4830713ae1ba867fc3))
+* bump the all group with 3 updates ([a98f176](https://github.com/mlibrary/platform-engineering-workflows/commit/a98f1768d4d63fcfafe263524a834bfadcd83a5f))
+
 ## [1.6.2](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.1...v1.6.2) (2025-01-30)
 
 
