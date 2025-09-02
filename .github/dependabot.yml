@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "daily"
       time: "15:00"
-      day: "monday"
+      #day: "monday"
       timezone: "America/Detroit"
     commit-message:
       prefix: "fix: "
