@@ -11,8 +11,6 @@ updates:
     commit-message:
       prefix: "fix: "
     open-pull-requests-limit: 5
-    reviewers:
-      - "niquerio"
     labels:
       - "dependencies"
     groups:
