@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.4](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.3...v1.6.4) (2025-11-03)
+
+
+### Bug Fixes
+
+* bump peter-evans/repository-dispatch from 3 to 4 in the all group ([d88bd86](https://github.com/mlibrary/platform-engineering-workflows/commit/d88bd863dede7c867f3f297859cf02d53d968108))
+* bump peter-evans/repository-dispatch from 3 to 4 in the all group ([f9bcf66](https://github.com/mlibrary/platform-engineering-workflows/commit/f9bcf660677fd33b5c1ad4f41f399a2333598f6b))
+
 ## [1.6.3](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.2...v1.6.3) (2025-09-02)
 
 
