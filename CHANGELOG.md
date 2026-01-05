@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.5](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.4...v1.6.5) (2026-01-05)
+
+
+### Bug Fixes
+
+* bump actions/checkout from 5 to 6 in the all group ([ac92206](https://github.com/mlibrary/platform-engineering-workflows/commit/ac9220693046bd2490d1d84ba73b633356a60faf))
+* bump actions/checkout from 5 to 6 in the all group ([4a9818c](https://github.com/mlibrary/platform-engineering-workflows/commit/4a9818c407159a5506496035650065da9a8afd40))
+
 ## [1.6.4](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.3...v1.6.4) (2025-11-03)
 
 
