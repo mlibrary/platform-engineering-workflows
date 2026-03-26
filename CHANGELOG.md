@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.6](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.5...v1.6.6) (2026-03-26)
+
+
+### Bug Fixes
+
+* uses commit shas for all dependencies ([349e716](https://github.com/mlibrary/platform-engineering-workflows/commit/349e7160702ac25bb759dfccdfbec5b0a06f5c5b))
+
 ## [1.6.5](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.4...v1.6.5) (2026-01-05)
 
 
