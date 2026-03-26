@@ -1,7 +1,6 @@
 name: Update image file in kube repository
-
 on:
-  workflow_call: 
+  workflow_call:
     inputs:
       subject:
         type: string
@@ -9,46 +8,45 @@ on:
       body:
         type: string
         required: true
-      image: 
+      image:
         type: string
         required: true
       file:
         type: string
         required: true
-
 jobs:
   update-image:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone latest repository
-      uses: actions/checkout@v6
-    - name: dump github event
-      env:
-        EVENT: ${{ toJson(github.event) }}
-      run: echo "$EVENT"
-    - name: update the config
-      env: 
-        FILE: ${{ inputs.file }}
-        IMAGE: ${{ inputs.image }}
-      run: echo -n $IMAGE > $FILE
-    - name: cat the files
-      run: cat ${{ inputs.file }}
-    - name: Commit the files
-      env:
-        SUBJECT: ${{ inputs.subject }}
-        BODY: ${{ inputs.body }}
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Actions Bot"
-        git add -A
-        git commit -m "$SUBJECT" -m "$BODY"
-    - name: pull and push the files
-      uses: nick-fields/retry@v3
-      with:
-        timeout_seconds: 30 
-        retry_wait_seconds: 30 
-        retry_on: error
-        max_attempts: 5
-        command: |
-          git pull --rebase
-          git push
+      - name: Clone latest repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: dump github event
+        env:
+          EVENT: ${{ toJson(github.event) }}
+        run: echo "$EVENT"
+      - name: update the config
+        env:
+          FILE: ${{ inputs.file }}
+          IMAGE: ${{ inputs.image }}
+        run: echo -n $IMAGE > $FILE
+      - name: cat the files
+        run: cat ${{ inputs.file }}
+      - name: Commit the files
+        env:
+          SUBJECT: ${{ inputs.subject }}
+          BODY: ${{ inputs.body }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions Bot"
+          git add -A
+          git commit -m "$SUBJECT" -m "$BODY"
+      - name: pull and push the files
+        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 #v4.0.0
+        with:
+          timeout_seconds: 30
+          retry_wait_seconds: 30
+          retry_on: error
+          max_attempts: 5
+          command: |
+            git pull --rebase
+            git push
