@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.7](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.6...v1.6.7) (2026-04-06)
+
+
+### Bug Fixes
+
+* deploy uses commit shas; update github app token ([81bfb84](https://github.com/mlibrary/platform-engineering-workflows/commit/81bfb8429fa4dcc5ebe5221294a87b163cdfd276))
+
 ## [1.6.6](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.5...v1.6.6) (2026-03-26)
 
 
