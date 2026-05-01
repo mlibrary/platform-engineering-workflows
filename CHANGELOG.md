@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.8](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.7...v1.6.8) (2026-05-01)
+
+
+### Bug Fixes
+
+* bump docker/login-action from 4.0.0 to 4.1.0 in the all group across 1 directory ([4c1b9aa](https://github.com/mlibrary/platform-engineering-workflows/commit/4c1b9aaf7393626b1f59ff43164f0e1da1074b19))
+* bump docker/login-action in the all group across 1 directory ([dae2897](https://github.com/mlibrary/platform-engineering-workflows/commit/dae2897bdcc56c3c4b1b730aaaf62dc5471793db))
+* bump the all group with 3 updates ([0275010](https://github.com/mlibrary/platform-engineering-workflows/commit/02750107b10a248f1485ee24e36c7b777ff2aa1d))
+* bump the all group with 3 updates ([af71ae4](https://github.com/mlibrary/platform-engineering-workflows/commit/af71ae40c78fc3282e50954f7398cc14e93f527f))
+
 ## [1.6.7](https://github.com/mlibrary/platform-engineering-workflows/compare/v1.6.6...v1.6.7) (2026-04-06)
 
 
