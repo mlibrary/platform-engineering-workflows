@@ -38,7 +38,7 @@ jobs:
         run: "if [ -z \"${{ inputs.CONFIG_REPO_RW_APP_ID }}\" ] \nthen\n  echo \"CONFIG_REPO_RW_APP_ID=${{ vars.CONFIG_REPO_RW_APP_ID }}\" >> $GITHUB_ENV\n  echo \"setting CONFIG_REPO_RW_APP_ID to ${{ vars.CONFIG_REPO_RW_APP_ID }} from vars\"\nelse  \n  echo \"CONFIG_REPO_RW_APP_ID=${{ inputs.CONFIG_REPO_RW_APP_ID }}\" >> $GITHUB_ENV\n  echo \"setting CONFIG_REPO_RW_APP_ID to ${{ inputs.CONFIG_REPO_RW_APP_ID }} from inputs\"\nfi\nif [ -z \"${{ inputs.CONFIG_REPO_FULL_NAME }}\" ] \nthen\n  echo \"CONFIG_REPO_FULL_NAME=${{ vars.CONFIG_REPO_FULL_NAME }}\" >> $GITHUB_ENV\n  echo \"setting CONFIG_REPO_FULL_NAME to ${{ vars.CONFIG_REPO_FULL_NAME }} from vars\"\nelse  \n  echo \"CONFIG_REPO_FULL_NAME=${{ inputs.CONFIG_REPO_FULL_NAME }}\" >> $GITHUB_ENV\n  echo \"setting CONFIG_REPO_FULL_NAME to ${{ inputs.CONFIG_REPO_FULL_NAME }} from inputs\"\nfi\n"
       - name: Generate app token
         id: generate_token
-        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
         with:
           app-id: ${{ env.CONFIG_REPO_RW_APP_ID }}
           private-key: ${{ secrets.CONFIG_REPO_RW_KEY }}
